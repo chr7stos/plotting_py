@@ -19,11 +19,13 @@ f.close()
 
 c1s = [] #initiate the lists containing the data
 o1s = [] #initiate the lists containing the data
+name = []
 
 for line in lines:
     p = line.split() #split every line in lines 
     c1s.append(float(p[1])) #append each line of column 1
     o1s.append(float(p[2])) #append each line of column 2
+    name.append(p[0]) #creates naming of axis
 
 N = int(len(c1s))
 
@@ -44,7 +46,7 @@ ax.set_xlim(-width,len(ind))
 ax.set_ylim(0,9)
 ax.set_ylabel('Normalised intensity')
 ax.set_title('Emissions normalised to In3d3/2 or Si2p3/2')
-xTickMarks = [p[0] for line in lines] #['Group'+str(i) for i in range(1,8)]
+xTickMarks = name #['Group'+str(i) for i in range(1,8)]
 ax.set_xticks(ind+width)
 xtickNames = ax.set_xticklabels(xTickMarks)
 plt.setp(xtickNames, rotation=0, fontsize=10)
