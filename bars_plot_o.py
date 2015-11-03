@@ -14,7 +14,7 @@ ax = fig.add_subplot(111)
 ## the data
 
 f = open('areas.txt', 'r') 
-lines = f.readlines()[1:]
+lines = f.readlines()[1:5]
 f.close() 
 
 c1s = [] #initiate the lists containing the data
@@ -35,10 +35,10 @@ width = 0.25                      # the width of the bars
 space = 0.25
 
 ## the bars
-rects1 = ax.bar(ind, c1s, width,
+bar1 = ax.bar(ind, c1s, width,
                 color='green')
 
-rects2 = ax.bar(ind+space, o1s, width,
+bar2 = ax.bar(ind+space, o1s, width,
                     color='red')
 
 # axes and labels
@@ -54,7 +54,7 @@ plt.setp(xtickNames, rotation=0, fontsize=10)
 #ax.spines["right"].set_visible(False)  
 
 ## add a legend
-ax.legend( (rects1[0], rects2[0]), ('C1s', 'O1s') )
+ax.legend( (bar1[0], bar2[0]), ('C1s', 'O1s') )
 
 plt.savefig("areas.png", dpi = 200)
 plt.show()
